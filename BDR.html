@@ -169,50 +169,57 @@
     <div class="container">
         <h1>Fiche de Réception</h1>
 
-        <div class="section">
-            <label for="company-name">Nom de l’entreprise :</label>
-            <textarea id="entreprise" name="entreprise" rows="1"></textarea>
+        <table class="table">
+            <tr>
+                <td><center>
+        <div>
+            <label for="company-name">Nom de l’entreprise :</label><br>
+            <textarea id="entreprise" name="entreprise" rows="1"></textarea><br>
 
-            <label for="address">Adresse :</label>
-            <textarea id="Adresse" name="Adresse" rows="2"></textarea>
+            <label for="address">Adresse :</label><br>
+            <textarea id="Adresse" name="Adresse" rows="2"></textarea><br>
 
-            <label for="country">Pays :</label>
+            <label for="country">Pays :</label><br>
             <select id="country" name="country" onchange="updatePhonePlaceholder()">
                 <option value="fr">France</option>
                 <option value="it">Italie</option>
                 <option value="mc">Monaco</option>
-            </select>
+            </select><br>
 
-            <label for="phone">N° de téléphone :</label>
+            <label for="phone">N° de téléphone :</label><br>
             <input type="text" id="phone" name="phone" placeholder="Ex : 0123456789" oninput="validatePhoneNumber()">
             <p id="phone-error" class="error-message">Veuillez entrer un numéro de téléphone valide pour le pays sélectionné.</p>
         </div>
+      </td>
+  </tr>
+</table>
+
         <table class="table">
             <tr>
                 <td><center>
-                  <div class="section">
-                      <label for="brand">Marque :</label>
-                      <input type="text" id="brand" name="brand">
+                  <div>
+                      <label for="brand">Marque :</label><br>
+                      <input type="text" id="brand" name="brand"><br>
 
-                      <label for="registration">N° Immat :</label>
-                      <input type="text" id="registration" name="registration">
+                      <label for="registration">N° Immat :</label><br>
+                      <input type="text" id="registration" name="registration"><br>
 
-                      <label for="serial">N° Série :</label>
-                      <input type="text" id="serial" name="serial" oninput="validateSerialNumber()">
+                      <label for="serial">N° Série :</label><br>
+                      <input type="text" id="serial" name="serial" oninput="validateSerialNumber()"><br>
                       <p id="serial-error" class="error-message">Le numéro de série doit contenir exactement 17 caractères.</p>
 
-                      <label for="mileage">Kilométrage :</label>
-                      <input type="text" id="mileage" name="mileage">
+                      <label for="mileage">Kilométrage :</label><br>
+                      <input type="text" id="mileage" name="mileage"><br>
 
-                      <label for="entry-date">Date d’entrée :</label>
-                      <input type="date" id="entry-date" name="entry-date">
+                      <label for="entry-date">Date d’entrée :</label><br>
+                      <input type="date" id="entry-date" name="entry-date"><br>
                       </div>
                     </center>
                 </td>
                 <td><center>
-                  <div class="section">
+                  <div>
                       <label for="description">Motif du RDV / Description de la panne :</label>
-                      <textarea id="description" name="description" rows="4"></textarea>
+                      <textarea id="description" name="description" rows="7" cols="60"></textarea>
                   </div></center>
                 </td>
             </tr>
