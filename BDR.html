@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fiche de Réception - BestDrive</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .section {
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 15px;
+            background-color: #fafafa;
+        }
+        .section label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        .table td, .table th {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+        .gauge {
+            width: 150px;
+            height: 75px;
+            position: relative;
+            overflow: hidden;
+        }
+        .gauge::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 10px solid #ccc;
+            border-top-color: #007bff;
+            border-radius: 50%;
+            transform: rotate(0deg);
+            transform-origin: center bottom;
+        }
+        .gauge input[type="range"] {
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            -webkit-appearance: none;
+            background: transparent;
+        }
+        .gauge input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            background-color: #007bff;
+            border-radius: 50%;
+            width: 15px;
+            height: 15px;
+            cursor: pointer;
+        }
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            text-align: center;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        .error-message {
+            color: red;
+            font-size: 14px;
+            display: none;
+            margin-top: -10px;
+            margin-bottom: 10px;
+        }
+    </style>
+    <script>
+        function validatePhoneNumber() {
+            const phoneField = document.getElementById('phone');
+            const countrySelect = document.getElementById('country');
+            const errorMessage = document.getElementById('phone-error');
+            const value = phoneField.value;
+            const country = countrySelect.value;
+
+            let regex;
+            if (country === 'fr') {
+                regex = /^\d{10}$/;
+            } else if (country === 'it') {
+                regex = /^\d{9,10}$/;
+            } else if (country === 'mc') {
+                regex = /^\d{8}$/;
+            }
+
+            if (!regex || !regex.test(value)) {
+                errorMessage.style.display = 'block';
+            } else {
+                errorMessage.style.display = 'none';
+            }
+        }
+
+        function validateSerialNumber() {
+            const serialField = document.getElementById('serial');
+            const errorMessage = document.getElementById('serial-error');
+            const value = serialField.value;
+            if (value.length !== 17) {
+                errorMessage.style.display = 'block';
+            } else {
+                errorMessage.style.display = 'none';
+            }
+        }
+
+        function updatePhonePlaceholder() {
+            const countrySelect = document.getElementById('country');
+            const phoneField = document.getElementById('phone');
+
+            if (countrySelect.value === 'fr') {
+                phoneField.placeholder = 'Ex : 0123456789';
+            } else if (countrySelect.value === 'it') {
+                phoneField.placeholder = 'Ex : 3456789012';
+            } else if (countrySelect.value === 'mc') {
+                phoneField.placeholder = 'Ex : 12345678';
+            }
+
+            validatePhoneNumber();
+        }
+
+        function printPage() {
+            const now = new Date();
+            alert(`Impression lancée : ${now.toLocaleDateString()} ${now.toLocaleTimeString()}`);
+            window.print();
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Fiche de Réception</h1>
+
+        <div class="section">
+            <label for="company-name">Nom de l’entreprise :</label>
+            <input type="text" id="company-name" name="company-name">
+
+            <label for="address">Adresse :</label>
+            <input type="text" id="address" name="address">
+
+            <label for="country">Pays :</label>
+            <select id="country" name="country" onchange="updatePhonePlaceholder()">
+                <option value="fr">France</option>
+                <option value="it">Italie</option>
+                <option value="mc">Monaco</option>
+            </select>
+
+            <label for="phone">N° de téléphone :</label>
+            <input type="text" id="phone" name="phone" placeholder="Ex : 0123456789" oninput="validatePhoneNumber()">
+            <p id="phone-error" class="error-message">Veuillez entrer un numéro de téléphone valide pour le pays sélectionné.</p>
+        </div>
+
+        <div class="section">
+            <label for="brand">Marque :</label>
+            <input type="text" id="brand" name="brand">
+
+            <label for="registration">N° Immat :</label>
+            <input type="text" id="registration" name="registration">
+
+            <label for="serial">N° Série :</label>
+            <input type="text" id="serial" name="serial" oninput="validateSerialNumber()">
+            <p id="serial-error" class="error-message">Le numéro de série doit contenir exactement 17 caractères.</p>
+
+            <label for="mileage">Kilométrage :</label>
+            <input type="text" id="mileage" name="mileage">
+
+            <div class="inline-group">
+                <div>
+                    <label>Carte grise :</label>
+                    <select id="carte-grise" name="carte-grise">
+                        <option value="oui">Oui</option>
+                        <option value="non">Non</option>
+                    </select>
+                </div>
+                <div>
+                    <label>Certificat rendu :</label>
+                    <select id="certificat-rendu" name="certificat-rendu">
+                        <option value="oui">Oui</option>
+                        <option value="non">Non</option>
+                    </select>
+                </div>
+            </div>
+
+            <label>Devis :</label>
+            <select id="devis" name="devis">
+                <option value="oui">Oui</option>
+                <option value="non">Non</option>
+            </select>
+
+            <label for="entry-date">Date d’entrée :</label>
+            <input type="date" id="entry-date" name="entry-date">
+
+            <label for="description">Motif du RDV / Description de la panne :</label>
+            <textarea id="description" name="description" rows="4"></textarea>
+        </div>
+
+        <table class="table">
+            <tr>
+                <td>
+                    <p>Niveau de carburant</p>
+                    <div class="gauge">
+                        <input type="range" min="0" max="100" step="1">
+                    </div>
+                </td>
+                <td>
+                    <p>ADBlue</p>
+                    <div class="gauge">
+                        <input type="range" min="0" max="100" step="1">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><img src="truck-front.png" alt="Camion - Avant"></td>
+                <td><img src="truck-left.png" alt="Camion - Gauche"></td>
+                <td><img src="truck-right.png" alt="Camion - Droite"></td>
+                <td><img src="truck-rear.png" alt="Camion - Arrière"></td>
+            </tr>
+        </table>
+
+        <table class="table">
+            <tr>
+                <td>
+                    <p>Entrée véhicule</p>
+                    <label for="entry-date">Date :</label>
+                    <input type="date" id="entry-date" name="entry-date">
+                    <label for="client-name-entry">Nom :</label>
+                    <input type="text" id="client-name-entry" name="client-name-entry">
+                    <label for="client-signature-entry">Signature :</label>
+                    <input type="text" id="client-signature-entry" name="client-signature-entry" style="height: 50px;">
+                </td>
+                <td>
+                    <p>Technicien</p>
+                    <label for="tech-name-entry">Nom :</label>
+                    <input type="text" id="tech-name-entry" name="tech-name-entry">
+                    <label for="tech-signature-entry">Signature :</label>
+                    <input type="text" id="tech-signature-entry" name="tech-signature-entry" style="height: 50px;">
+                </td>
+                <td>
+                    <p>Sortie véhicule</p>
+                    <label for="exit-date">Date :</label>
+                    <input type="date" id="exit-date" name="exit-date">
+                    <label for="client-name-exit">Nom :</label>
+                    <input type="text" id="client-name-exit" name="client-name-exit">
+                    <label for="client-signature-exit">Signature :</label>
+                    <input type="text" id="client-signature-exit" name="client-signature-exit" style="height: 50px;">
+                </td>
+                <td>
+                    <p>Technicien</p>
+                    <label for="tech-name-exit">Nom :</label>
+                    <input type="text" id="tech-name-exit" name="tech-name-exit">
+                    <label for="tech-signature-exit">Signature :</label>
+                    <input type="text" id="tech-signature-exit" name="tech-signature-exit" style="height: 50px;">
+                </td>
+            </tr>
+        </table>
+
+        <button class="btn" onclick="printPage()">Imprimer</button>
+    </div>
+</body>
+</html>
