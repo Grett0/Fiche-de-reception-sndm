@@ -174,7 +174,7 @@
             <textarea id="entreprise" name="entreprise" rows="1"></textarea>
 
             <label for="address">Adresse :</label>
-            <textarea id="Adresse" name="Adresse" rows="3"></textarea>
+            <textarea id="Adresse" name="Adresse" rows="2"></textarea>
 
             <label for="country">Pays :</label>
             <select id="country" name="country" onchange="updatePhonePlaceholder()">
@@ -187,31 +187,38 @@
             <input type="text" id="phone" name="phone" placeholder="Ex : 0123456789" oninput="validatePhoneNumber()">
             <p id="phone-error" class="error-message">Veuillez entrer un numéro de téléphone valide pour le pays sélectionné.</p>
         </div>
+        <table class="table">
+            <tr>
+                <td><center>
+                  <div class="section">
+                      <label for="brand">Marque :</label>
+                      <input type="text" id="brand" name="brand">
 
-        <div class="section">
-            <label for="brand">Marque :</label>
-            <input type="text" id="brand" name="brand">
+                      <label for="registration">N° Immat :</label>
+                      <input type="text" id="registration" name="registration">
 
-            <label for="registration">N° Immat :</label>
-            <input type="text" id="registration" name="registration">
+                      <label for="serial">N° Série :</label>
+                      <input type="text" id="serial" name="serial" oninput="validateSerialNumber()">
+                      <p id="serial-error" class="error-message">Le numéro de série doit contenir exactement 17 caractères.</p>
 
-            <label for="serial">N° Série :</label>
-            <input type="text" id="serial" name="serial" oninput="validateSerialNumber()">
-            <p id="serial-error" class="error-message">Le numéro de série doit contenir exactement 17 caractères.</p>
+                      <label for="mileage">Kilométrage :</label>
+                      <input type="text" id="mileage" name="mileage">
 
-            <label for="mileage">Kilométrage :</label>
-            <input type="text" id="mileage" name="mileage">
+                      <label for="entry-date">Date d’entrée :</label>
+                      <input type="date" id="entry-date" name="entry-date">
+                      </div>
+                    </center>
+                </td>
+                <td><center>
+                  <div class="section">
+                      <label for="description">Motif du RDV / Description de la panne :</label>
+                      <textarea id="description" name="description" rows="4"></textarea>
+                  </div></center>
+                </td>
+            </tr>
+        </table>
 
 
-
-
-
-            <label for="entry-date">Date d’entrée :</label>
-            <input type="date" id="entry-date" name="entry-date">
-
-            <label for="description">Motif du RDV / Description de la panne :</label>
-            <textarea id="description" name="description" rows="4"></textarea>
-        </div>
 
         <table class="table">
             <tr>
