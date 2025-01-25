@@ -113,9 +113,9 @@
             if (country === 'fr') {
                 regex = /^\d{10}$/;
             } else if (country === 'it') {
-                regex = /^\d{9,10}$/;
+                regex = /^\d{13}$/;
             } else if (country === 'mc') {
-                regex = /^\d{8}$/;
+                regex = /^\d{14}$/;
             }
 
             if (!regex || !regex.test(value)) {
@@ -141,11 +141,11 @@
             const phoneField = document.getElementById('phone');
 
             if (countrySelect.value === 'fr') {
-                phoneField.placeholder = 'Ex : 0123456789';
+                phoneField.placeholder = 'Ex : 0493823770';
             } else if (countrySelect.value === 'it') {
-                phoneField.placeholder = 'Ex : 3456789012';
+                phoneField.placeholder = 'Ex : 0039123456789';
             } else if (countrySelect.value === 'mc') {
-                phoneField.placeholder = 'Ex : 12345678';
+                phoneField.placeholder = 'Ex : 00377123456789';
             }
 
             validatePhoneNumber();
@@ -243,7 +243,8 @@
                 </td>
                 <td><center>
                     <p>ADBlue</p>
-                    <div class="gauge">
+                    <div>
+                      <img src="jauge.png"><br>
                         <input type="range" min="0" max="100" step="1">
                     </div></center>
                 </td>
