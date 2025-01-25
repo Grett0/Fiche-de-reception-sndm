@@ -151,11 +151,18 @@
             validatePhoneNumber();
         }
 
-        function printPage() {
+        function updateButtonLabel() {
             const now = new Date();
-            alert(`Impression lancée : ${now.toLocaleDateString()} ${now.toLocaleTimeString()}`);
+            const printButton = document.getElementById('print-button');
+            printButton.textContent = `Imprimer - ${now.toLocaleDateString()} ${now.toLocaleTimeString()}`;
+        }
+
+        function printPage() {
+            updateButtonLabel();
             window.print();
         }
+
+        document.addEventListener('DOMContentLoaded', updateButtonLabel);
     </script>
 </head>
 <body>
@@ -285,7 +292,7 @@
             </tr>
         </table>
 
-        <button class="btn" onclick="printPage()">Imprimer</button>
+        <button class="btn" id="print-button" onclick="printPage()">Imprimer</button>
     </div>
 </body>
 </html>
