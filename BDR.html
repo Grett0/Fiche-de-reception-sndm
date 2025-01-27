@@ -17,7 +17,7 @@
             background: #fff;
             padding: 20px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
+            border-radius: 5px;
         }
         h1 {
             text-align: center;
@@ -170,7 +170,7 @@
             <textarea id="entreprise" name="entreprise" rows="1"></textarea><br>
 
             <label for="address">Adresse :</label><br>
-            <textarea id="Adresse" name="Adresse" rows="2"></textarea><br>
+            <textarea id="Adresse" name="Adresse" rows="1"></textarea><br>
 
             <label for="country">Pays :</label><br>
             <select id="country" name="country" onchange="updatePhonePlaceholder()">
@@ -187,7 +187,7 @@
       <td><center>
         <div>
             <label for="description">Motif du RDV / Description de la panne :</label>
-            <textarea id="description" name="description" rows="9" cols="55"></textarea>
+            <textarea id="description" name="description" rows="7" cols="50"></textarea>
         </div></center>
       </td>
   </tr>
@@ -204,21 +204,40 @@
                       <input type="text" id="registration" name="registration"><br>
 
                       <label for="serial">N° Série :</label><br>
-                      <input type="text" id="serial" name="serial" oninput="validateSerialNumber()"><br>
+                      <input type="text" id="serial" name="serial" ><br>
                       <p id="serial-error" class="error-message">Le numéro de série doit contenir exactement 17 caractères.</p>
 
                       <label for="mileage">Kilométrage :</label><br>
                       <input type="text" id="mileage" name="mileage"><br>
 
-                      <label for="entry-date">Date d’entrée :</label><br>
-                      <input type="date" id="entry-date" name="entry-date"><br>
                       </div>
                     </center>
                 </td>
+                <td><Div Align=Left>
+                  <input type="checkbox" id="scales" />
+                  Entretien<br>
+                  <input type="checkbox" id="scales" />
+                  Pneumatique<br>
+                  <input type="checkbox" id="scales" />
+                  Chronotachygraphe<br>
+                  <input type="checkbox" id="scales" />
+                  Limiteur<br>
+                  <input type="checkbox" id="scales" />
+                  EAD<br>
+                  <input type="checkbox" id="scales" />
+                  CT<br>
+                  <input type="checkbox" id="scales" />
+                  Garantie<br>
+                  <input type="checkbox" id="scales" />
+                  R&M<br>
+                  <input type="checkbox" id="scales" />
+                  PPFS<br>
+                </div>
+                </td>
                 <td><center>
                   <div>
-                      <label for="description">Motif du RDV / Description de la panne :</label>
-                      <textarea id="description" name="description" rows="9" cols="55"></textarea>
+                      <label for="description">Code defaut :</label><br>
+                      <textarea id="description" name="description" rows="7" cols="30"></textarea>
                   </div></center>
                 </td>
             </tr>
@@ -261,7 +280,7 @@
                   </div>
                 </td>
                 <td>
-                  <label>Devis Obligatoire ? :</label><br><br>
+                  <label>Devis :</label><br><br>
                   <select id="devis" name="devis">
                       <option value="oui">Oui</option>
                       <option value="non">Non</option>
@@ -269,7 +288,7 @@
                 </td>
             </tr>
             <tr>
-                <td><img src="truck-front.png" alt="Camion - Avant"></td>
+                <td><img src="face.png" alt="Camion - Avant"></td>
                 <td><img src="truck-left.png" alt="Camion - Gauche"></td>
                 <td><img src="truck-right.png" alt="Camion - Droite"></td>
                 <td><img src="truck-rear.png" alt="Camion - Arrière"></td>
@@ -280,8 +299,6 @@
             <tr>
                 <td>
                     <p>Entrée véhicule</p>
-                    <label for="entry-date">Date :</label>
-                    <input type="date" id="entry-date" name="entry-date">
                     <label for="client-name-entry">Nom :</label>
                     <input type="text" id="client-name-entry" name="client-name-entry">
                     <label for="client-signature-entry">Signature :</label>
@@ -296,8 +313,6 @@
                 </td>
                 <td>
                     <p>Sortie véhicule</p>
-                    <label for="exit-date">Date :</label>
-                    <input type="date" id="exit-date" name="exit-date">
                     <label for="client-name-exit">Nom :</label>
                     <input type="text" id="client-name-exit" name="client-name-exit">
                     <label for="client-signature-exit">Signature :</label>
