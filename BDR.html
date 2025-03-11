@@ -208,6 +208,7 @@
                       <input type="text" id="mileage" name="mileage"><br>
 
                       </div>
+					  
                     </center>
                 </td>
                 <td><Div Align=Left>
@@ -231,7 +232,7 @@
                   PPFS<br>
                 </div>
                 </td>
-                                <td><Div Align=Left>
+                <td><Div Align=Left>
                   <input type="checkbox" id="scales" />
                   <label for="mileage">Remorquage par :</label><br>
                   <input type="text" id="mileage" name="mileage"><br><br>
@@ -239,14 +240,10 @@
                   <input type="checkbox" id="scales" />
                   <label for="mileage">Depannage par :</label><br>
                   <input type="text" id="mileage" name="mileage"><br><br>
-
                 </div>
                 </td>
             </tr>
         </table>
-
-
-
         <table class="table">
             <tr>
                 <td><center>
@@ -293,7 +290,80 @@
             </tr>
         </table>
 
-        <button class="btn" id="print-button" onclick="printPage()">Imprimer</button>
-    </div>
+        <button class="btn" id="print-button" onclick="printPage()">Imprimer</button><br><br>
+		<table class="table">
+            <tr>
+                <td><Div Align=Left>
+                  <input type="checkbox" id="scales" />
+                  Passage valise 
+                  <input type="checkbox" id="scales" />
+                  Mise à jour 
+                  <input type="checkbox" id="scales" />
+                  Campagne de rappel 
+                  <input type="checkbox" id="scales" />
+                  Code default  
+                  <input type="checkbox" id="scales" />
+                  Voyant 
+                  <input type="checkbox" id="scales" />
+                  Remplacement pièces 
+                </div>
+                </td>
+            </tr>
+        </table>
+		<table class="table">
+            <tr>
+                <td><center>
+					<div>
+						Codes defaults <br><br>
+						<input type="text" id="entry" name="entry" style="height: 80px;">
+                    </div>
+                    </center>
+                </td>
+                <td><center>
+					<div>
+						Voyant<br>Tableau de bord<br>
+						<input type="text" id="entry" name="entry" style="height: 80px;">
+                </div>
+                </td>
+                <td><center>
+					<div>
+						N° campagne de rappel<br><br>
+						<input type="text" id="entry" name="entry" style="height: 80px;">
+					</div>
+                </td>
+				<td><center>
+					<div>
+						Reference pièces<br><br>
+						<input type="text" id="entry" name="entry" style="height: 80px;">
+					</div>
+                </td>
+            </tr>
+        </table>
+		<table class="table">
+            <tr>
+				<td><center>
+					<div>
+						Travaux effectués :<br>
+						<textarea id="description" name="description" rows="20" cols="100"></textarea>
+					</div>
+                </td>
+            </tr>
+        </table>
+		<table class="table">
+            <tr>
+                <td><Div Align=Left>
+                  <input type="checkbox" id="scales" />
+                  Echantillons  
+                  <input type="checkbox" id="scales" />
+                  Cosignes 
+                  <input type="checkbox" id="scales" />
+                  Passage valise 
+                  <input type="checkbox" id="scales" />
+                  Essai routier  
+                </div>
+                </td>
+            </tr>
+        </table>		
+    </div>		
 </body>
 </html>
