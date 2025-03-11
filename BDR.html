@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fiche de Réception - BestDrive</title>
+    <title>Fiche de Réception - SNDM</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -134,7 +134,7 @@
             const phoneField = document.getElementById('phone');
 
             if (countrySelect.value === 'fr') {
-                phoneField.placeholder = 'Ex : 0493823770';
+                phoneField.placeholder = '';
             } else if (countrySelect.value === 'it') {
                 phoneField.placeholder = 'Ex : 0039123456789';
             } else if (countrySelect.value === 'mc') {
@@ -169,9 +169,6 @@
             <label for="company-name">Nom de l’entreprise :</label><br>
             <textarea id="entreprise" name="entreprise" rows="1"></textarea><br>
 
-            <label for="address">Adresse :</label><br>
-            <textarea id="Adresse" name="Adresse" rows="1"></textarea><br>
-
             <label for="country">Pays :</label><br>
             <select id="country" name="country" onchange="updatePhonePlaceholder()">
                 <option value="fr">France</option>
@@ -180,8 +177,8 @@
             </select><br>
 
             <label for="phone">N° de téléphone :</label><br>
-            <input type="text" id="phone" name="phone" placeholder="Ex : 0123456789" oninput="validatePhoneNumber()">
-            <p id="phone-error" class="error-message">Veuillez entrer un numéro de téléphone valide pour le pays sélectionné.</p>
+            <input type="text" id="phone" name="phone" placeholder="" oninput="validatePhoneNumber()">
+            <p id="phone-error" class="error-message"><br>Veuillez entrer un numéro de téléphone valide pour le pays sélectionné.</p>
         </div>
       </td>
       <td><center>
@@ -234,11 +231,16 @@
                   PPFS<br>
                 </div>
                 </td>
-                <td><center>
-                  <div>
-                      <label for="description">Code defaut :</label><br>
-                      <textarea id="description" name="description" rows="7" cols="30"></textarea>
-                  </div></center>
+                                <td><Div Align=Left>
+                  <input type="checkbox" id="scales" />
+                  <label for="mileage">Remorquage par :</label><br>
+                  <input type="text" id="mileage" name="mileage"><br><br>
+                  
+                  <input type="checkbox" id="scales" />
+                  <label for="mileage">Depannage par :</label><br>
+                  <input type="text" id="mileage" name="mileage"><br><br>
+
+                </div>
                 </td>
             </tr>
         </table>
@@ -276,31 +278,18 @@
                 <td>
                     <p>Entrée véhicule</p>
                     <label for="client-name-entry">Nom :</label>
-                    <input type="text" id="client-name-entry" name="client-name-entry">
+                    <input type="text" id="client-name-entry" name="client-name-entry"><br><br>
                     <label for="client-signature-entry">Signature :</label>
                     <input type="text" id="client-signature-entry" name="client-signature-entry" style="height: 50px;">
                 </td>
                 <td>
                     <p>Technicien</p>
                     <label for="tech-name-entry">Nom :</label>
-                    <input type="text" id="tech-name-entry" name="tech-name-entry">
+                    <input type="text" id="tech-name-entry" name="tech-name-entry"><br><br>
                     <label for="tech-signature-entry">Signature :</label>
                     <input type="text" id="tech-signature-entry" name="tech-signature-entry" style="height: 50px;">
                 </td>
-                <td>
-                    <p>Sortie véhicule</p>
-                    <label for="client-name-exit">Nom :</label>
-                    <input type="text" id="client-name-exit" name="client-name-exit">
-                    <label for="client-signature-exit">Signature :</label>
-                    <input type="text" id="client-signature-exit" name="client-signature-exit" style="height: 50px;">
-                </td>
-                <td>
-                    <p>Technicien</p>
-                    <label for="tech-name-exit">Nom :</label>
-                    <input type="text" id="tech-name-exit" name="tech-name-exit">
-                    <label for="tech-signature-exit">Signature :</label>
-                    <input type="text" id="tech-signature-exit" name="tech-signature-exit" style="height: 50px;">
-                </td>
+
             </tr>
         </table>
 
